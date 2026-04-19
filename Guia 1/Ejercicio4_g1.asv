@@ -1,0 +1,46 @@
+%guia 1 punto 4
+%emma fiorini
+
+
+function x = Ejercicio4_g1(A, fo, tita, fs, L)
+
+if nargin < 5
+    A=3;
+    fo=200;
+    tita = pi/2;
+    fs = .4e3;
+    L = 40;
+end
+
+Ts = 1/fs;
+n = 0:(L-1);
+t = Ts * n;
+WO = 2*pi*fo/fs;
+x_t = A*sin(2*pi*fo*t + tita);%senoideal digital
+x = A*sin(WO*n+tita); %senoideal discreta
+
+%% a:
+subplot(1,5,1)
+set(H, 'name', 'PDS. TP1 Ej 4', 'position', [20 50 1200 700], 'menubar', 'none');
+h = plot (t,x_t, 'r', t,x,'ob');
+set(h,'LineWidth', 0.75);
+legend('x(t) red', 'x[n] blue');
+ylabel('x(t) ; x[n]');
+xlabel('nTs [n]');
+grid
+
+
+fo =10* fo;
+subplot(1,5,2)
+set(H, 'name', 'PDS. TP1 Ej 4', 'position', [20 50 1200 700], 'menubar', 'none');
+h = plot (t,x_t, 'r', t,x,'ob');
+set(h,'LineWidth', 0.75);
+legend('x(t) red', 'x[n] blue');
+ylabel('x(t) ; x[n]');
+xlabel('nTs [n]');
+grid
+
+%% b
+
+
+end
